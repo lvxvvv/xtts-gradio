@@ -17,6 +17,8 @@ from TTS.demos.xtts_ft_demo.utils.gpt_train import train_gpt
 from TTS.tts.configs.xtts_config import XttsConfig
 from TTS.tts.models.xtts import Xtts
 
+os.environ["GRADIO_ANALYTICS_ENABLED"] = "False"
+
 
 def clear_gpu_cache():
     # clear the GPU cache
@@ -408,7 +410,7 @@ if __name__ == "__main__":
             )
 
     demo.launch(
-        share=True,
+        share=False,
         debug=False,
         server_port=args.port,
         server_name="0.0.0.0"
