@@ -19,6 +19,8 @@ from TTS.tts.models.xtts import Xtts
 
 os.environ["GRADIO_ANALYTICS_ENABLED"] = "False"
 
+## use cpu in utils/formatter if whisper fails
+
 
 def clear_gpu_cache():
     # clear the GPU cache
