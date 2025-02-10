@@ -57,22 +57,22 @@ system-deps:	## install linux system deps
 	apt-get install -y libsndfile1-dev
 
 dev-deps:  ## install development deps
-	pip install -r requirements.dev.txt
+	pip install --no-cache-dir -r requirements.dev.txt
 
 doc-deps:  ## install docs dependencies
-	pip install -r docs/requirements.txt
+	pip install --no-cache-dir -r docs/requirements.txt
 
 build-docs: ## build the docs
 	cd docs && make clean && make build
 
 hub-deps:  ## install deps for torch hub use
-	pip install -r requirements.hub.txt
+	pip install --no-cache-dir -r requirements.hub.txt
 
 deps:	## install 🐸 requirements.
-	pip install -r requirements.txt
+	pip install --no-cache-dir -r requirements.txt
 
 install:	## install 🐸 TTS for development.
-	pip install -e .[all]
+	pip install --no-cache-dir -e .[all]
 
 docs:	## build the docs
 	$(MAKE) -C docs clean && $(MAKE) -C docs html
