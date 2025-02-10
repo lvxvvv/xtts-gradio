@@ -1,4 +1,4 @@
-ARG BASE=nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
+ARG BASE=nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
 FROM ${BASE}
 
 RUN apt-get update && apt-get upgrade -y &&  apt install git git-lfs python3 python3-pip coreutils vim -y
