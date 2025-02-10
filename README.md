@@ -1,6 +1,6 @@
 # XTTS with Gradio for AI Training
 
-This repository copies most of the files from [Coqui-TTS](https://github.com/coqui-ai/TTS), with some changes that allows the creation of a container with correct dependencies that allows AI voicetraining with a Web UI.
+This repository copies most of the files from [Coqui-TTS](https://github.com/coqui-ai/TTS), with some changes in order to create an image with correct dependencies for AI voice training in Web UI .
 
 Some of the changes include:
 
@@ -10,7 +10,7 @@ Some of the changes include:
 - `./TTS/demos/xtts_ft_demo/utils/formatter.py` set to use Whisper's `large-v3` model.
 
 
-## Creating the Container
+## Creating the Docker/Podman Image
 
 Install [Docker](https://www.docker.com/) or [Podman](https://podman.io/). Then run:
 
@@ -28,7 +28,15 @@ podman build . -t xtts_gradio
 docker build . -t xtts_gradio
 ```
 
-## Running the container
+## Pulling the Image
+
+Instead of building the image from source, you can pull it from ghcr.io:
+
+```
+podman pull ghcr.io/lvxvvv/xtts_gradio:latest
+```
+
+## Running the Image
 
 If you are using Podman, simply run:
 
