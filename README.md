@@ -5,27 +5,17 @@ This repository copies most of the files from [Coqui-TTS](https://github.com/coq
 Some of the changes include:
 
 - The `Dockerfile`;
-- A file with frozen pip dependencies: `requirements.frozen.txt`;
+- Frozen pip dependencies: `requirements.frozen.txt`;
 - `./TTS/demos/xtts_ft_demo/xtts_demo.py` does not create a public link and disables analytics;
 - `./TTS/demos/xtts_ft_demo/utils/formatter.py` set to use Whisper's `large-v3` model.
 
 
-## Creating the Docker/Podman Image
+## Build the Docker/Podman Image
 
-Install [Docker](https://www.docker.com/) or [Podman](https://podman.io/). Then run:
-
-### With Podman
-
+Install [Docker](https://www.docker.com/) or [Podman](https://podman.io/) and adapt the commands accordingly:
 
 ```
 podman build . -t xtts_gradio
-```
-
-
-### With docker
-
-```
-docker build . -t xtts_gradio
 ```
 
 ## Pulling the Image
@@ -36,7 +26,7 @@ Instead of building the image from source, you can pull it from ghcr.io:
 podman pull ghcr.io/lvxvvv/xtts_gradio:latest
 ```
 
-## Running the Image
+## Running the Container
 
 If you are using Podman, simply run:
 
@@ -44,9 +34,15 @@ If you are using Podman, simply run:
 ./run.sh
 ```
 
+The following command will be executed:
+
+```
+podman run -it --gpus all -p 5003:5003 --entrypoint python3 xtts_gradio /root/tts/TTS/demos/xtts_ft_demo/xtts_demo.py
+```
+
 If you are using docker, modify this file so it uses `docker` instead of `podman`.
 
-This commands runs the image with an entrypoint that initializes the Web UI. It will be served on port `5003` on your localhost:
+This commands runs the container with an entrypoint that initializes the Web UI. It will be served on port `5003` on your localhost:
 
 ![](gradio_example.png)
 
